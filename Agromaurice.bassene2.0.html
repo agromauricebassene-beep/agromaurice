@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agromaurice.bassene</title>
+<style>
+:root{--bg:#eef3ec;--card:#fff;--ink:#1d2b22;--mute:#52635a;--line:#cdd9cf;--ac:#2f6b4f;--fish:#1f6f8b;--veg:#8a5a00;--tint:#e3ecdf;--warn:#fff3d6;--wi:#6b4a00;--pos:#1b7a33;--neg:#b3261e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121a15;--card:#1b2620;--ink:#e6efe8;--mute:#9db0a4;--line:#2d3b33;--ac:#6fc79b;--fish:#6bc0dd;--veg:#e3b565;--tint:#22302a;--warn:#3a2f10;--wi:#f2d48a;--pos:#6fd788;--neg:#ff8a7a}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+main{max-width:900px;margin:0 auto;padding:18px 16px 40px}
+h1{font:700 clamp(1.7rem,6vw,2.5rem)/1.1 Georgia,serif;margin:6px 0}h2{font:700 1.4rem Georgia,serif;margin:20px 0 8px}
+.lead{color:var(--mute);max-width:62ch;margin:0 0 14px}
+nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px}
+nav button{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:999px;font:inherit;cursor:pointer;min-height:40px}
+nav button[aria-pressed="true"]{background:var(--ac);color:#fff;border-color:var(--ac)}
+.note{background:var(--warn);color:var(--wi);border-radius:10px;padding:10px 14px;font-size:.92rem;margin:10px 0}
+.pil{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:12px 0}
+.pil div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px}.pil i{font-style:normal;font-size:34px;display:block}
+.grid{display:grid;gap:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}details[open]{border-color:var(--ac)}
+summary{list-style:none;display:flex;align-items:center;gap:12px;padding:10px 14px;cursor:pointer;min-height:70px}summary::-webkit-details-marker{display:none}
+.pic{flex:0 0 58px;height:58px;border-radius:14px;display:grid;place-items:center;font-size:34px;background:var(--tint)}
+summary b{display:block;font:700 1.1rem Georgia,serif}summary small{color:var(--mute)}
+summary:after{content:"▾";margin-left:auto;color:var(--mute)}details[open] summary:after{content:"▴"}
+.bd{padding:2px 16px 16px;border-top:1px solid var(--line)}.bd h3{font-size:.95rem;margin:14px 0 4px;color:var(--ac)}.bd p{margin:0}
+.fish .bd h3{color:var(--fish)}.veg .bd h3{color:var(--veg)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 16px 14px;margin:10px 0}
+.card h3{color:var(--ac);font-size:1rem;margin:12px 0 4px}ol,ul{margin:0;padding-left:20px}li{margin:3px 0}
+svg{max-width:100%;height:auto;display:block;margin:8px auto}
+.nd{fill:var(--tint);stroke:var(--ac);stroke-width:1.5}.tx{fill:var(--ink);font:600 13px system-ui,sans-serif;text-anchor:middle}.ln{stroke:var(--mute);stroke-width:1.6;fill:none}
+footer{margin-top:26px;padding-top:12px;border-top:1px solid var(--line);color:var(--mute);font-size:.85rem}
+summary:focus-visible,button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.im{border-radius:12px;margin:12px 0 4px;max-width:360px;width:100%}.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;min-width:1150px;width:100%;font-size:.86rem}th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}th{background:var(--tint);font-size:.78rem}th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:var(--card);font-weight:600}th:first-child{background:var(--tint)}
+input,select{padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}td input{width:88px;text-align:right;padding:4px 6px;font-size:.86rem}.pos{color:var(--pos);font-weight:600}.neg{color:var(--neg);font-weight:600}
+.card label{display:inline-block;margin:8px 14px 8px 0;font-size:.9rem;color:var(--mute)}.card input{width:110px}
+table.cg{min-width:660px}.cg td{text-align:center;padding:5px 2px;font-size:.78rem;font-weight:700;color:#1d2b22}.cg td:first-child{text-align:left;color:var(--ink);padding:5px 8px}.cg th{text-align:center;padding:5px 2px}.cS{background:#cfe9f5}.cR{background:#ffe2a8}.cH{background:#b7e1b0}.lg{display:flex;gap:14px;flex-wrap:wrap;font-size:.85rem;margin:6px 0}.lg span{padding:2px 10px;border-radius:999px;color:#1d2b22;font-weight:600}
+</style>
+</head>
+<body>
+<main>
+<h1>Agromaurice.bassene</h1>
+<p class="lead">Guide pour créer une ferme intégrée semi-intensive au Sénégal : pisciculture, élevage et maraîchage qui se nourrissent l’un l’autre.<br><small>Auteur : Maurice Ayaboureul BASSENE</small></p>
+<nav id="nav"></nav>
+<div id="v"></div>
+<footer>© 2026 Maurice Ayaboureul BASSENE — Tous droits réservés. Voir l’onglet « Droit d’auteur ».</footer>
+</main>
+<script>
+var AN=[
+["🐓","Poulet local","Chair et œufs",
+"Poulailler sur terrain sec et surélevé, à l’abri du vent. Murs en banco ou grillage, toit en tôle ou paille, ventilation haute, litière de balle de riz ou coques d’arachide. 3 à 5 poules/m², perchoirs, 1 pondoir pour 4 à 5 poules, parcours clôturé et ombragé.",
+"Parcours (insectes, graines) + maïs, mil, son, tourteau d’arachide, feuilles de moringa, coquilles broyées. Eau propre en continu.",
+"1 coq pour 8 à 10 poules. Couvaison 21 jours (10 à 12 œufs par poule). Poussins au chaud et au sec les premières semaines.",
+"Vaccin Newcastle selon le calendrier du vétérinaire, vide sanitaire entre bandes, quarantaine des nouveaux, abreuvoirs lavés chaque jour.",
+"Bac de cendre de bois contre les poux ; jus d’aloès ou macération de feuilles de neem (une poignée dans 1 L d’eau, 12 h, filtrée) dans l’eau de boisson 3 jours en soutien. Mortalité ou diarrhée sanglante : vétérinaire."],
+["🐖","Porc","Engraissement, naissage",
+"Porcherie ombragée, à 50 m ou plus des habitations, sol en béton ou banco damé en pente, murets de 1 m, double clôture. 1 à 1,5 m²/porc à l’engraissement, 6 à 8 m² par truie avec loge de mise bas, pédiluve à l’entrée.",
+"Aliment équilibré par phases (maïs, son, tourteau, complément minéral). Sous-produits et restes de cuisine toujours bouillis. Eau fraîche à volonté.",
+"Gestation : 3 mois, 3 semaines, 3 jours. Loge de mise bas propre ; porcelets au chaud, colostrum, sevrage vers 6 à 8 semaines.",
+"Peste porcine africaine : pas de vaccin, biosécurité totale (pédiluve, quarantaine, aucun contact avec porcs extérieurs). Déparasitage régulier. Signaler toute mortalité brutale.",
+"Graines de papaye pilées dans l’aliment contre les vers. Aucun remède traditionnel ne soigne la peste porcine : isolement et services vétérinaires."],
+["🐑","Mouton","Embouche, Tabaski",
+"Bergerie ouverte sur les côtés, toit en tôle ou chaume, sol sec ou plancher en lattes surélevé, mangeoires hautes, abreuvoirs. 1 à 1,5 m²/tête, enclos de repos et parcours clôturé.",
+"Fourrages (herbe, foin, paille traitée, feuilles de Leucaena, Acacia) + concentrés (son, tourteau d’arachide) introduits progressivement. Pierre à lécher, eau propre.",
+"1 bélier pour 20 à 30 brebis. Gestation d’environ 5 mois. Colostrum aux agneaux, sevrage vers 3 mois.",
+"Vaccination PPR et pasteurellose selon les campagnes, déparasitage, parage des onglons, quarantaine des animaux achetés.",
+"Feuilles de neem en complément et graines de papaye contre les vers ; tisane de feuilles de goyavier en cas de diarrhée légère. Au-delà, vétérinaire."],
+["🐐","Chèvre","Viande, lait",
+"Abri surélevé en planches, sec, clôture de 1,5 m, râteliers hors du sol, 1 à 1,5 m²/tête, protégé de l’humidité et du vent.",
+"Feuilles et arbustes (Leucaena, moringa, Acacia), foin, résidus de culture, concentré pour femelles gestantes ou allaitantes, pierre à lécher, eau.",
+"1 bouc pour 20 à 25 chèvres. Gestation 5 mois, jumeaux fréquents (Djallonké). Colostrum et chaleur pour les chevreaux.",
+"Parasites internes = risque n°1 : vermifugation raisonnée, vaccin PPR, parage, fumier retiré souvent, pâturage tournant.",
+"Graines de papaye et feuilles de neem en complément contre les vers. Avis vétérinaire avant tout traitement."],
+["🦆","Canard","Viande, robuste",
+"Abri sec et ventilé, litière épaisse, 3 à 4 canards/m², parcours avec petit point d’eau, clôture anti-prédateurs, pondoirs bas.",
+"Parcours (herbes, insectes, escargots) + céréales, son, tourteau, verdure. Canetons : aliment riche en protéines, eau à portée.",
+"1 mâle pour 5 à 8 femelles. Incubation 28 jours (Pékin) à 35 jours (Barbarie). Canetons au chaud et au sec.",
+"Litière propre, aliments non moisis, calendrier vaccinal du vétérinaire, séparer des poules en cas de maladie.",
+"Macération de feuilles de neem dans l’eau de boisson en soutien, comme pour le poulet ; aliments secs et sains en prévention."],
+["🐇","Lapin","Viande, peu d’espace",
+"Clapier en grillage surélevé de 80 cm, à l’ombre, toit en tôle ou paille. Cage de 0,5 m² par femelle avec boîte à nid, cages d’engraissement, abreuvoirs, courant d’air sans vent direct.",
+"Fourrage frais ou foin (herbes, feuilles de patate douce, moringa) à volonté + granulés ou son et tourteau. Jamais d’aliment mouillé ou moisi.",
+"Gestation d’environ 31 jours ; nid de paille avant mise bas ; sevrage à 5 à 6 semaines ; vente vers 3 à 4 mois.",
+"Cages nettoyées chaque jour, ombre, vaccins (myxomatose, maladie hémorragique) si disponibles, surveillance des diarrhées, oreilles et rhume.",
+"Foin sec et feuilles de goyavier séchées en cas de diarrhée légère ; supprimer le vert humide. Si le lapin ne mange plus, consulter."]
+];
+var PI=[
+["🐟","Silure africain","Clarias gariepinus",
+"Bassin en béton, hors-sol bâché ou étang en terre d’environ 1 m de profondeur, arrivée et vidange d’eau, filet de couverture solide (le silure s’échappe), clôture contre les oiseaux.",
+"Granulés riches en protéines, 2 à 3 repas par jour (environ 3 à 5 % du poids), ajustés à la température ; ne pas surnourrir.",
+"Alevins achetés en écloserie fiable. Trier les tailles régulièrement : le silure est cannibale. Cycle de 5 à 8 mois.",
+"Eau à 25 à 30 °C, pH 6,5 à 8,5, renouvellement, chaulage du bassin vide, retrait des poissons morts.",
+"Bain de sel court contre les parasites externes (dose à valider avec un technicien aquacole). Aucune posologie traditionnelle validée."],
+["🐠","Tilapia","Oreochromis niloticus",
+"Étang en terre argileuse ou bassin béton/bâché de 1 à 1,5 m de profondeur, arrivée, trop-plein et vidange, filet anti-oiseaux, berges inclinées.",
+"Granulés 2 à 3 repas par jour (≈ 2 à 5 % du poids), un peu de fumier composté pour le plancton, avec modération.",
+"Alevins mâles ou inversés pour éviter la surpopulation. Cycle de 5 à 8 mois, tri des tailles.",
+"Surveiller l’oxygène (poissons en surface = alerte), eau verte, nettoyage, chaux, quarantaine des alevins.",
+"Renouveler l’eau d’abord ; bain de sel court contre les parasites externes avec avis du technicien."]
+];
+var VE=[
+["🧅","Oignon","Pépinière de 40 à 50 jours puis repiquage à 10 × 10 cm ; cycle de 3 à 4 mois ; réduire l’arrosage avant récolte, sécher à l’ombre.","Thrips, pourriture, mildiou : rotation, planches aérées, pas d’excès d’eau."],
+["🍅","Tomate","Pépinière 3 à 4 semaines, repiquage à 50 × 60 cm, tuteurage, paillage, arrosage régulier au pied ; récolte dès 2 à 3 mois.","Flétrissement, mildiou, mouche blanche, chenilles : rotation de 3 ans, paillage, ne pas mouiller les feuilles."],
+["🌶️","Piment","Pépinière 4 à 5 semaines, repiquage à 50 × 50 cm, compost, récolte échelonnée.","Pucerons, acariens, flétrissement : savon noir + neem, rotation."],
+["🥬","Laitue","Pépinière 3 semaines, repiquage à 25 × 25 cm, arrosage léger et fréquent, ombrage en saison chaude, récolte en 40 à 60 jours.","Pucerons, pourriture du collet : ne pas enterrer le collet, arroser au pied."],
+["🥒","Concombre","Semis direct en poquets à 60 × 100 cm, palissage, arrosage régulier, récolte vers 2 mois.","Oïdium, mildiou, mouche des fruits : aération, rotation, retirer les fruits atteints."],
+["🫑","Poivron","Pépinière 5 à 6 semaines, repiquage à 50 × 50 cm, compost et paillage, récolte après 2,5 à 3 mois.","Flétrissement, pucerons, pourriture apicale (eau irrégulière) : arrosage régulier."],
+["🌱","Navet","Semis direct en lignes espacées de 20 à 25 cm, éclaircir à 10 cm, récolte en 50 à 70 jours.","Altises, pourriture : moustiquaire de protection, rotation."],
+["🍠","Taro","Plantation de cormes ou rejets en sol frais et humide, à 60 × 80 cm, buttage, paillage, cycle de 7 à 10 mois.","Pourriture du corme (sol détrempé), mildiou : bon drainage, plants sains, rotation."]
+];
+var RE=[["Neem","250 g de feuilles pilées (ou 100 g de graines) dans 5 L d’eau, 12 h, filtrer, ajouter 1 cuillère de savon noir. Pulvériser le soir contre pucerons, chenilles, mouches blanches."],
+["Piment-ail","100 g de piment et 100 g d’ail pilés dans 1 L d’eau, 24 h, filtrer, diluer 1 pour 10. Contre insectes mangeurs de feuilles."],
+["Savon noir","1 cuillère à soupe dans 1 L d’eau contre pucerons et cochenilles."],
+["Cendre de bois","Poudrer légèrement le sol et la base des plants contre fourmis et altises."]];
+var V=document.getElementById("v"),N=document.getElementById("nav");
+function det(a,c){return '<details class="'+c+'"><summary><span class="pic">'+a[0]+'</span><span><b>'+a[1]+'</b><small>'+a[2]+'</small></span></summary><div class="bd">'+pic(a[0],a[1],c||"ani")+'<h3>Construction de l’habitat</h3><p>'+a[3]+'</p><h3>Alimentation</h3><p>'+a[4]+'</p><h3>Reproduction</h3><p>'+a[5]+'</p><h3>Santé : prophylaxie</h3><p>'+a[6]+'</p><h3>Santé : usage traditionnel rapporté</h3><p>'+a[7]+'</p></div></details>'}
+var NT='<div class="note">Usages traditionnels rapportés, non validés scientifiquement : à tester sur peu d’animaux et à faire confirmer par un vétérinaire. Chiffres indicatifs à adapter à votre zone. N’utilisez jamais les graines de <i>Senna occidentalis</i> (Padja Santa), toxiques pour les animaux.</div>';
+function schema(){
+var n=[["Maraîchage",350,45],["Compost",350,170],["Poules, canards",100,95],["Lapins",100,245],["Mouton, chèvre",600,95],["Porc",600,245],["Bassins poissons",350,330]],
+e=[[2,1],[3,1],[4,1],[5,1],[1,0],[0,2],[0,3],[6,0],[0,4]],s='<svg viewBox="0 0 700 390" role="img" aria-label="Schéma des flux de la ferme intégrée"><defs><marker id="m" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="var(--mute)"/></marker></defs>';
+e.forEach(function(k){var a=n[k[0]],b=n[k[1]],dx=b[1]-a[1],dy=b[2]-a[2],L=Math.sqrt(dx*dx+dy*dy),u=(L-34)/L,v=34/L;s+='<line class="ln" marker-end="url(#m)" x1="'+(a[1]+dx*v*.7)+'" y1="'+(a[2]+dy*v*.7)+'" x2="'+(a[1]+dx*u)+'" y2="'+(a[2]+dy*u)+'"/>'});
+n.forEach(function(k){s+='<rect class="nd" x="'+(k[1]-70)+'" y="'+(k[2]-24)+'" width="140" height="48" rx="12"/><text class="tx" x="'+k[1]+'" y="'+(k[2]+5)+'">'+k[0]+'</text>'});
+return s+'</svg>'}
+var T={
+"Accueil":function(){return '<div class="pil"><div><i>🐟</i><b>Pisciculture</b><br>Silure et tilapia</div><div><i>🐓</i><b>Élevage</b><br>Poulet, porc, mouton, chèvre, canard, lapin</div><div><i>🥬</i><b>Maraîchage</b><br>8 légumes</div><div><i>♻️</i><b>Compost</b><br>Le cœur de la ferme</div></div><h2>Modèle de ferme intégrée</h2><p class="lead">Les déjections des animaux alimentent le compost, le compost nourrit les légumes, les résidus de légumes nourrissent lapins et volailles, et l’eau des bassins arrose les planches.</p>'+schema()+'<div class="card"><h3>Comment lire le schéma</h3><ul><li>Animaux → compost : fumier et déjections (toujours compostés avant usage).</li><li>Compost → maraîchage : engrais organique pour les planches.</li><li>Maraîchage → volailles et lapins : feuilles, épluchures et résidus sains.</li><li>Bassins → maraîchage : eau de vidange riche en nutriments pour l’arrosage.</li></ul></div><h2>Les 5 étapes pour démarrer</h2><ol><li>Choisir un terrain sain avec eau toute l’année.</li><li>Commencer par un ou deux ateliers seulement.</li><li>Installer le compost et les planches avant les animaux.</li><li>Prendre contact avec un vétérinaire et les services de l’élevage et de l’aquaculture.</li><li>Tenir un registre des dépenses, soins et ventes.</li></ol>'},
+"Élevage":function(){return NT+'<div class="grid">'+AN.map(function(a){return det(a,"")}).join("")+'</div>'},
+"Pisciculture":function(){return NT+'<div class="grid">'+PI.map(function(a){return det(a,"fish")}).join("")+'</div>'},
+"Maraîchage":function(){return '<h2>Installer une planche</h2><svg viewBox="0 0 420 150" role="img" aria-label="Schéma d’une planche"><rect x="20" y="10" width="110" height="130" fill="none"/><rect class="nd" x="150" y="10" width="110" height="130" rx="6"/><g stroke="var(--ac)" stroke-width="2"><path d="M175 20v110M205 20v110M235 20v110"/></g><rect x="20" y="10" width="110" height="130" fill="none"/><text class="tx" x="205" y="88">1 à 1,2 m</text><text class="tx" x="95" y="80">allée</text><text class="tx" x="95" y="96">40 à 50 cm</text><text class="tx" x="330" y="80">longueur 5 à 10 m</text></svg><div class="card"><ol><li>Orienter la planche nord-sud, près d’un point d’eau, avec clôture.</li><li>Largeur de 1 à 1,2 m (accessible des deux côtés), longueur de 5 à 10 m, allées de 40 à 50 cm.</li><li>Retirer cailloux et racines, bêcher sur 20 à 30 cm.</li><li>Incorporer 1 à 2 brouettées de compost mûr pour 10 m² et niveler.</li><li>Pépinière ou semis selon la culture, arrosage léger, puis paillage.</li><li>Faire tourner les familles de légumes d’un cycle à l’autre.</li></ol></div><h2>Les 8 cultures</h2><div class="grid">'+VE.map(function(a){return '<details class="veg"><summary><span class="pic">'+a[0]+'</span><span><b>'+a[1]+'</b><small>Production et prévention</small></span></summary><div class="bd">'+pic(a[0],a[1],"veg")+'<h3>Production</h3><p>'+a[2]+'</p><h3>Dates de production</h3><p>'+CL[a[1]][3]+'</p><h3>Maladies et prévention</h3><p>'+a[3]+'</p><h3>Traitement traditionnel</h3><p>Voir les recettes ci-dessous.</p></div></details>'}).join("")+'</div>'+calGrid()+'<h2>Traitements à base de plantes</h2><div class="note">Usages traditionnels rapportés : tester sur quelques plants, traiter le soir, porter des gants, éviter les yeux, et ne pas traiter juste avant la récolte.</div><div class="card">'+RE.map(function(r){return '<h3>'+r[0]+'</h3><p>'+r[1]+'</p>'}).join("")+'<h3>Prévention</h3><p>Rotation, paillage, planches aérées, association avec basilic ou œillet d’Inde, retrait des plants malades.</p></div>'},
+"Compost":function(){return '<h2>Manuel de production de compost</h2><div class="card"><h3>1. Matières</h3><p><b>Brunes</b> (carbone) : paille, feuilles sèches, coques d’arachide, sciure. <b>Vertes</b> (azote) : résidus de légumes, herbe fraîche, fumier de lapin, chèvre, mouton ou volaille. Proportion : environ 2/3 de brun pour 1/3 de vert.</p><h3>2. À éviter</h3><p>Viande, os, huile, plantes malades, mauvaises herbes montées en graines, fumier de porc non composté.</p><h3>3. Montage du tas</h3><ol><li>Choisir un endroit ombragé et drainé, fond aéré avec branches.</li><li>Superposer couches de brun et de vert de 10 à 15 cm.</li><li>Arroser : la matière doit rester humide comme une éponge essorée.</li><li>Former un tas d’environ 1,2 m × 1,2 m × 1 m et couvrir.</li></ol><h3>4. Entretien</h3><p>Retourner toutes les 2 à 3 semaines. Le tas chauffe (environ 55 à 65 °C), ce qui aide à détruire une partie des germes. Trop sec : arroser ; odeur forte : aérer et ajouter du brun.</p><h3>5. Maturité et usage</h3><p>Après 2 à 3 mois, le compost est noir, friable, à odeur de sous-bois. Utiliser 1 à 2 brouettées pour 10 m² de planche.</p></div>'},
+"Rentabilité":function(){return calcHTML()},"Droit d’auteur":function(){return '<h2>Droit d’auteur</h2><div class="card"><p><b>© 2026 Maurice Ayaboureul BASSENE. Tous droits réservés.</b></p><p>Auteur : Maurice Ayaboureul BASSENE.</p><p>Le modèle « Agromaurice.bassene » (structure du guide, textes, schémas et organisation de la ferme intégrée) est une œuvre originale de son auteur, Maurice Ayaboureul BASSENE. Toute reproduction, diffusion, adaptation ou commercialisation, totale ou partielle, sans autorisation écrite préalable est interdite.</p><h3>Pour renforcer la protection</h3><ul><li>Au Sénégal, la protection naît de la création, mais un dépôt auprès du Bureau sénégalais du droit d’auteur (BSDA) donne une preuve de date. À confirmer avec eux.</li><li>Conserver les versions datées de l’œuvre.</li><li>Citer les sources et reconnaître les savoirs traditionnels des communautés.</li></ul><h3>Limite de responsabilité</h3><p>Ce guide est informatif. Il ne remplace ni un vétérinaire, ni un technicien agricole ou aquacole, ni la réglementation locale.</p></div>'}};
+var CAP={"Poulet local":"Poulailler surélevé, perchoirs et parcours ombragé","Porc":"Porcherie ombragée, sol en pente et pédiluve","Mouton":"Bergerie ouverte, plancher en lattes surélevé","Chèvre":"Abri surélevé en planches, râteliers hors du sol","Canard":"Abri sec, litière épaisse et petit point d’eau","Lapin":"Clapier grillagé surélevé, à l’ombre","Silure africain":"Bassin de 1 m de profondeur, filet de couverture","Tilapia":"Étang argileux, berges inclinées, filet anti-oiseaux","Oignon":"Repiquage 10 × 10 cm, bulbes séchés à l’ombre","Tomate":"Plants tuteurés 50 × 60 cm, sol paillé","Piment":"Repiquage 50 × 50 cm, récolte échelonnée","Laitue":"Planche ombragée, plants à 25 × 25 cm","Concombre":"Poquets 60 × 100 cm, tiges palissées","Poivron":"Plants paillés 50 × 50 cm, arrosage régulier","Navet":"Lignes espacées de 20 à 25 cm","Taro":"Sol frais et humide, buttage et paillage","Arachide":"Lignes semées au début des pluies","Mil":"Épis de mil sur sol sableux","Maïs":"Plants alignés, engrais fractionné","Riz":"Parcelle avec lame d’eau de 5 cm","Niébé":"Culture courte, gousses à maturité","Manioc":"Boutures de 25 cm plantées en buttes"};
+function pic(e,n,k){var s={ani:["#cfe8c4","#7fb069"],fish:["#cfe9f5","#3f93b8"],veg:["#e3efd0","#8b5e3c"]}[k],c=CAP[n]||n,w="q20-9 40 0t40 0t40 0t40 0t40 0t40 0t40 0t40 0",
+d=k=="fish"?'<path d="M0 62'+w+'v58H0z" fill="'+s[1]+'"/><path d="M0 84'+w+'" stroke="#fff" fill="none" opacity=".6"/>':k=="veg"?'<rect y="70" width="320" height="50" fill="'+s[1]+'"/><path d="M0 82h320M0 94h320" stroke="#5b3a1e" stroke-width="2"/><text x="14" y="72" font-size="16">🌱 🌱 🌱</text><text x="240" y="72" font-size="16">🌱 🌱 🌱</text>':'<rect y="72" width="320" height="48" fill="'+s[1]+'"/><path d="M14 72V46l28-16 28 16v26z" fill="#c9a36b" stroke="#8a6a3c"/><path d="M8 48l34-20 34 20z" fill="#a9552f"/>';
+return '<svg class="im" viewBox="0 0 320 120" role="img" aria-label="'+n+' : '+c+'">'+'<rect width="320" height="120" fill="'+s[0]+'"/>'+d+'<text x="185" y="86" font-size="58" text-anchor="middle">'+e+'</text><rect x="10" y="95" width="300" height="20" rx="10" fill="#fff" opacity=".88"/><text x="160" y="109" font-size="11.5" font-weight="600" text-anchor="middle" fill="#1d2b22">'+c+'</text></svg>'}
+var AD=[["🐓","Poulet local",100,600,2500,300,300,10,4500,3],["🐖","Porc",10,35000,60000,3000,5000,5,130000,2],["🐑","Mouton",10,60000,25000,2500,3000,3,110000,3],["🐐","Chèvre",10,25000,15000,2000,2000,5,55000,3],["🦆","Canard",50,800,3500,300,400,8,5000,3],["🐇","Lapin",20,1500,4000,300,400,8,6000,3],["🐟","Silure africain",1000,50,1100,30,100,15,1800,2],["🐠","Tilapia",1000,40,700,20,80,15,1000,2]],
+VD=[["🧅","Oignon",10,250,300,[1500,2000,3500,800,1500],1],["🍅","Tomate",10,300,250,[1200,2500,4000,1500,2000],2],["🌶️","Piment",10,80,600,[800,1500,3000,1000,1200],2],["🥬","Laitue",10,150,400,[500,1500,2500,500,1500],3],["🥒","Concombre",10,200,200,[600,1500,2500,700,1500],3],["🫑","Poivron",10,150,500,[1000,2000,3000,1000,1500],2],["🌱","Navet",10,150,250,[400,1000,2000,400,1000],3],["🍠","Taro",10,150,400,[3000,1500,3500,300,1500],1]],
+FD=[["🥜","Arachide",1,1200,275,[120000,40000,120000,15000,30000],1],["🌾","Mil",1,800,250,[10000,35000,80000,5000,15000],1],["🌽","Maïs",1,3000,200,[30000,90000,110000,20000,30000],1],["🍚","Riz",1,4500,225,[60000,120000,200000,30000,80000],1],["🫘","Niébé",1,700,450,[25000,15000,70000,25000,10000],1],["🥔","Manioc",1,12000,120,[80000,40000,150000,10000,20000],1]],G={};
+function init(){G.A=AD.map(function(a){return{t:"a",e:a[0],n:a[1],q:a[2],c:a.slice(3,7),m:a[7],p:a[8],k:a[9],kd:/Silure|Tilapia/.test(a[1])?"fish":"ani",u:"têtes"}});
+G.V=VD.map(function(a){return{t:"s",e:a[0],n:a[1],q:a[2],y:a[3],p:a[4],c:a[5].slice(),k:a[6],kd:"veg",u:"planches de 100 m²"}});
+G.F=FD.map(function(a){return{t:"s",e:a[0],n:a[1],q:a[2],y:a[3],p:a[4],c:a[5].slice(),k:a[6],kd:"veg",u:"ha"}})}
+function ALL(){return G.A.concat(G.V,G.F)}
+function sum(c){return c.reduce(function(a,b){return a+b},0)}
+function fmt(x){return Math.round(x).toLocaleString("fr-FR")}
+function cc(r){var u=r.t=="a"?(1-r.m/100):r.y,cost=r.q*sum(r.c),un=r.q*u,rev=un*r.p;return{cost:cost,un:un,rev:rev,ben:rev-cost,mg:rev>0?(rev-cost)/rev*100:0}}
+function gv(r,f){return f[0]=="c"?r.c[+f[1]]:r[f]}
+function tbl(g,H,F){return '<div class="wrap"><table><thead><tr><th>Produit</th>'+H.concat(["Coût / cycle","Recette / cycle","Bénéfice / cycle","Marge %","Bénéfice / an"]).map(function(h){return '<th>'+h+'</th>'}).join("")+'</tr></thead><tbody>'+G[g].map(function(r,i){return '<tr data-g="'+g+'" data-i="'+i+'"><td>'+r.e+' '+r.n+'</td>'+F.map(function(f){return '<td><input type="number" min="0" step="any" data-f="'+f+'" value="'+gv(r,f)+'"></td>'}).join("")+'<td class="ct"></td><td class="rc"></td><td class="bn"></td><td class="mg"></td><td class="ya"></td></tr>'}).join("")+'</tbody></table></div>'}
+function hs(u){return ["Surface ("+u+")","Rendement (kg/"+u+")","Prix (FCFA/kg)","Semences","Engrais","Main-d’œuvre","Traitements","Eau & divers","Cycles / an"]}
+function calcHTML(){var FS=["q","y","p","c0","c1","c2","c3","c4","k"];
+return '<h2>Rentabilité automatique</h2><div class="note">Valeurs indicatives en FCFA, à remplacer par vos prix et coûts réels. Modifiez n’importe quelle case : tout se recalcule. Les coûts sont donnés par unité (tête, planche ou hectare) et par cycle.</div>'+
+'<h2>1. Élevage et pisciculture</h2>'+tbl("A",["Effectif","Achat jeunes / tête","Aliment / tête","Santé / tête","Autres coûts / tête","Mortalité %","Prix de vente / tête","Cycles / an"],["q","c0","c1","c2","c3","m","p","k"])+
+'<h2>2. Maraîchage</h2>'+tbl("V",hs("100 m²"),FS)+'<h2>3. Cultures de plein champ</h2>'+tbl("F",hs("ha"),FS)+
+'<h2>4. Estimateur rapide</h2><div class="card"><label>Produit <select id="es">'+ALL().map(function(r,i){return '<option value="'+i+'">'+r.e+' '+r.n+'</option>'}).join("")+'</select></label><label>Quantité <input id="eq" type="number" min="0" step="any"></label><label>Cycles / an <input id="ek" type="number" min="0" step="any"></label><div id="eo"></div></div>'}
+function upd(){document.querySelectorAll("tr[data-g]").forEach(function(tr){var r=G[tr.dataset.g][+tr.dataset.i],x=cc(r);function s(c,v,cl){var e=tr.querySelector("."+c);e.textContent=v;if(cl)e.className=c+" "+(x.ben>=0?"pos":"neg")}
+s("ct",fmt(x.cost));s("rc",fmt(x.rev));s("bn",fmt(x.ben),1);s("mg",x.mg.toFixed(1)+" %",1);s("ya",fmt(x.ben*r.k),1)});
+var es=document.getElementById("es");if(es){var r=ALL()[+es.value];if(!document.getElementById("eq").value){document.getElementById("eq").value=r.q;document.getElementById("ek").value=r.k}est()}}
+function est(){var r=ALL()[+document.getElementById("es").value],q=+document.getElementById("eq").value||0,k=+document.getElementById("ek").value||0,x=cc({t:r.t,q:q,c:r.c,m:r.m,y:r.y,p:r.p}),roi=x.cost>0?x.ben/x.cost*100:0,be=x.un>0?x.cost/x.un:0,cl=x.ben>=0?"pos":"neg",a=r.t=="a";
+document.getElementById("eo").innerHTML=pic(r.e,r.n,r.kd)+'<ul><li>Quantité : <b>'+fmt(q)+' '+r.u+'</b>, '+k+' cycle(s) par an</li><li>Production estimée : <b>'+fmt(x.un)+(a?' animaux vendus':' kg')+'</b> par cycle</li><li>Coût total : <b>'+fmt(x.cost)+' FCFA</b> par cycle</li><li>Recette : <b>'+fmt(x.rev)+' FCFA</b> par cycle</li><li>Bénéfice : <b class="'+cl+'">'+fmt(x.ben)+' FCFA</b> par cycle, soit <b class="'+cl+'">'+fmt(x.ben*k)+' FCFA</b> par an</li><li>Marge : <b>'+x.mg.toFixed(1)+' %</b> · Retour sur coûts : <b>'+roi.toFixed(1)+' %</b></li><li>Coût de revient : <b>'+fmt(be)+' FCFA</b> par '+(a?'animal vendu':'kg')+' (prix minimum pour ne pas perdre)</li></ul>'}
+V.addEventListener("input",function(e){var t=e.target,tr=t.closest&&t.closest("tr[data-g]");
+if(t.id=="es"){var r=ALL()[+t.value];document.getElementById("eq").value=r.q;document.getElementById("ek").value=r.k;est()}
+else if(t.id=="eq"||t.id=="ek")est();
+else if(tr){var r2=G[tr.dataset.g][+tr.dataset.i],f=t.dataset.f,v=parseFloat(t.value)||0;if(f[0]=="c")r2.c[+f[1]]=v;else r2[f]=v;upd()}});
+init();
+var MN=["Jan","Fév","Mar","Avr","Mai","Juin","Juil","Août","Sep","Oct","Nov","Déc"],
+CL={"Oignon":[[10,11],[11,12],[2,3,4],"Pépinière : octobre–novembre. Repiquage : novembre–décembre. Récolte : février–avril (3 à 4 mois après le repiquage)."],
+"Tomate":[[10,11],[11,12],[1,2,3,4],"Pépinière : octobre–novembre. Repiquage : novembre–décembre. Récolte : janvier–avril. En hivernage, les maladies rendent la culture plus difficile."],
+"Piment":[[10,11],[11,12],[2,3,4,5],"Pépinière : octobre–novembre. Repiquage : novembre–décembre. Récolte échelonnée : février–mai."],
+"Laitue":[[10,11,12,1],[11,12,1,2],[12,1,2,3],"Pépinière : octobre–janvier (saison fraîche). Repiquage 3 semaines plus tard. Récolte : décembre–mars, en 40 à 60 jours ; ombrage nécessaire en saison chaude."],
+"Concombre":[[10,11,12,1],[],[12,1,2,3],"Semis direct : octobre–janvier. Récolte : décembre–mars, environ 2 mois après le semis."],
+"Poivron":[[10,11],[11,12],[2,3,4],"Pépinière : octobre–novembre. Repiquage : novembre–décembre. Récolte : février–avril."],
+"Navet":[[11,12,1,2],[],[1,2,3,4],"Semis direct : novembre–février. Récolte : janvier–avril, en 50 à 70 jours."],
+"Taro":[[],[6,7,8],[1,2,3,4],"Plantation : juin–août, au début de l’hivernage (toute l’année possible avec irrigation). Cycle de 7 à 10 mois : récolte de janvier à avril."]};
+function calGrid(){return '<h2>Calendrier de production</h2><div class="note">Dates indicatives pour le Sénégal (saison fraîche d’octobre à février). Elles varient selon la zone (Niayes, bassin arachidier, Casamance) et l’année : confirmez avec le service agricole local.</div><div class="lg"><span class="cS">S = semis ou pépinière</span><span class="cR">R = repiquage ou plantation</span><span class="cH">H = récolte</span></div><div class="wrap"><table class="cg"><thead><tr><th>Culture</th>'+MN.map(function(m){return '<th>'+m+'</th>'}).join("")+'</tr></thead><tbody>'+VE.map(function(a){var c=CL[a[1]];return '<tr><td>'+a[0]+' '+a[1]+'</td>'+MN.map(function(m,i){var j=i+1,l=(c[0].indexOf(j)>=0?"S":"")+(c[1].indexOf(j)>=0?"R":"")+(c[2].indexOf(j)>=0?"H":""),k=c[2].indexOf(j)>=0?"cH":c[1].indexOf(j)>=0?"cR":c[0].indexOf(j)>=0?"cS":"";return '<td class="'+k+'">'+l+'</td>'}).join("")+'</tr>'}).join("")+'</tbody></table></div>'}
+function show(k){Array.prototype.forEach.call(N.children,function(b){b.setAttribute("aria-pressed",b.textContent===k)});V.innerHTML=T[k]();if(k=="Rentabilité")upd();window.scrollTo(0,0)}
+Object.keys(T).forEach(function(k){var b=document.createElement("button");b.textContent=k;b.onclick=function(){show(k)};N.appendChild(b)});
+show("Accueil");
+</script>
+</body>
+</html>
